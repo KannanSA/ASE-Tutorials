@@ -13,4 +13,4 @@ for i in np.r_[0:len(str1)]:
         d2.append(str2.get_distance(i,j,mic=True))
 
 diff = np.abs(np.sort(d1) - np.sort(d2))
-print diff[np.argmax(diff)]
+print(diff[np.argmax(diff)])

@@ -3,14 +3,14 @@ from ase.dft.kpoints import *
 import numpy as np
 import os
 from ase.calculators.vasp import Vasp
-from ase.lattice.spacegroup import crystal
+from ase.spacegroup import crystal
 import matplotlib.pyplot as plt
 
 def primitive_from_conventional_cell(atoms, spacegroup=1, setting=1):
     """Returns primitive cell given an Atoms object for a conventional
     cell and it's spacegroup."""
-    from ase.lattice.spacegroup import Spacegroup
-    from ase.utils.geometry  import cut
+    from ase.spacegroup import Spacegroup
+    from ase.geometry import cut
     sg = Spacegroup(spacegroup, setting)
     prim_cell = sg.scaled_primitive_cell  # Check if we need to transpose
     return cut(atoms, a=prim_cell[0], b=prim_cell[1], c=prim_cell[2])
@@ -64,13 +64,13 @@ kpts = dummy
 calc_band = Vasp(system = "Band structure",
                encut = 500.00,
                gga = "PS",
-	       kpts=kpts,
+           kpts=kpts,
                nsw = 0,
                ismear = 0, 
-	       sigma = 0.01,
-	       reciprocal = True)
+           sigma = 0.01,
+           reciprocal = True)
 si.set_calculator(calc_band)
-print "Band Calc"
+print("Band Calc")
 bands = si.get_potential_energy()
 
 # Get the band energies across the Brillouin zone
@@ -89,10 +89,10 @@ nelect = calc_band.get_number_of_electrons()
 for n in range(nbands):
 # Choose colour based on valence or conduction
     for n in range(nbands):
-	if n < nelect/2:
-	    plt.plot(x, e_kn[len(ibzkpts):len(kpts), n],color='#ffcc00')
-	else:
-	    plt.plot(x, e_kn[len(ibzkpts):len(kpts), n],color='#0066ff')
+    if n < nelect/2:
+        plt.plot(x, e_kn[len(ibzkpts):len(kpts), n],color='#ffcc00')
+    else:
+        plt.plot(x, e_kn[len(ibzkpts):len(kpts), n],color='#0066ff')
 
 # Shade in valence and conduction bands
 plt.fill_between(x,emin,e_kn[len(ibzkpts):len(kpts), nelect/2 - 1],color='#ffcc00',alpha=0.5)

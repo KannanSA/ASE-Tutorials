@@ -3,7 +3,7 @@
 Examples of using the Atomic Simulation Environment for making research easier.  See their installation [guide](https://wiki.fysik.dtu.dk/ase/download.html). Installation on OS X should now be as simple as:
 ```
 brew install pygtk
-pip install python-ase
+pip install ase
 ```
 
 ### spacegroup
@@ -14,33 +14,33 @@ pip install spglib
 ```
 To run:
 ```
-get_spg.py -f CONTCAR.zincblende
+python3 get_spg.py -f CONTCAR.zincblende
 ```
 
 ### convert-structures
 
 ```
-convert_structure.py -f 958456.cif
+pythonn3 convert_structure.py -f 958456.cif
 ```
 
 ### compare-structures
 ```
-compare_structures.py
+python3 compare_structures.py
 ````
 
 ### ase-db (database)
 
 ```
-ipython notebook ase-db.ipynb
+juypter notebook ase-db.ipynb
 ```
 
 ### LAMMPS-forcefield
 ```
-ipython notebook ForceFields.ipynb
+juypter notebook ForceFields.ipynb
 ```
 
 ### VASP-bandstructures
 ```
-ipython notebook SiBandsASE.ipynb
+juypter notebook SiBandsASE.ipynb
 ```
 
