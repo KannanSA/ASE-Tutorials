@@ -16,7 +16,7 @@ parser.add_option("-p", "--prec",
 bulk = io.read_vasp(options.file)
 spacegroup = spglib.get_spacegroup(bulk, symprec=options.prec)
 
-print "Spacegroup information."
-print "-----------------------"
-print spacegroup
-print "-----------------------"
+print("Spacegroup information.")
+print("-----------------------")
+print(spacegroup)
+print("-----------------------")

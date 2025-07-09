@@ -1,4 +1,3 @@
-from ase.lattice import bulk
 from ase.dft.kpoints import *
 import numpy as np
 import os
@@ -86,11 +85,10 @@ emax = e_kn[:, nbands-1].max() + 1.0
 nelect = calc_band.get_number_of_electrons()
 for n in range(nbands):
 # Choose colour based on valence or conduction
-    for n in range(nbands):
     if n < nelect/2:
-        plt.plot(x, e_kn[len(ibzkpts):len(kpts), n],color='#800000')
+        plt.plot(x, e_kn[len(ibzkpts):len(kpts), n], color='#800000')
     else:
-        plt.plot(x, e_kn[len(ibzkpts):len(kpts), n],color='#228B22')
+        plt.plot(x, e_kn[len(ibzkpts):len(kpts), n], color='#228B22')
 
 # Shade in valence and conduction bands
 plt.fill_between(x,emin,e_kn[len(ibzkpts):len(kpts), nelect/2 - 1],color='#800000',alpha=0.6)

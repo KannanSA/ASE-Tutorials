@@ -1,5 +1,5 @@
 # OPLS potential
-# write_lammpsMon Jul  7 17:03:48 2025
+# write_lammpsWed Jul  9 11:58:20 2025
 # bonds
 bond_style      harmonic
 bond_coeff      1 317.0 1.522 # C1-C1

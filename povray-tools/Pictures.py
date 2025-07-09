@@ -1,9 +1,11 @@
 #!/usr/bin/env python
-from ase.all import *
+from ase import Atoms
+from ase.io import read, write
+from ase.visualize import view
 from ase_povray import povray_parameter
 import numpy as np
 
-B=read('POSCAR')
+B=read('/Users/kannansekarannuradha/Documents/Projects/ASE-Tutorials/compare-structures/0.POSCAR')
 A=B.repeat((2,2,1))
 view(A)
 
@@ -41,5 +43,13 @@ at_text=[]
 #PovRay.set_specific_colors(at,at_color)
 #PovRay.set_specific_textures(at,at_text)
 
-write('POSCAR.pov',A,**PovRay.kwargs)
+# Remove deprecated or unsupported keywords for ASE's write_pov
+povray_kwargs = PovRay.kwargs.copy()
+povray_kwargs.pop('run_povray', None)
+povray_kwargs.pop('display', None)
+povray_kwargs.pop('pause', None)
+povray_kwargs.pop('transparent', None)
+povray_kwargs.pop('canvas_width', None)
+povray_kwargs.pop('canvas_height', None)
+write('POSCAR.pov', A, format='pov', **povray_kwargs)
 

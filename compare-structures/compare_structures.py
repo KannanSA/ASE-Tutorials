@@ -3,8 +3,8 @@ from ase import *
 from ase.io import read, write
 import numpy as np
 
-str1 = read('0.POSCAR')
-str2 = read('1.POSCAR')
+str1 = read('/Users/kannansekarannuradha/Documents/Projects/ASE-Tutorials/compare-structures/0.POSCAR')
+str2 = read('/Users/kannansekarannuradha/Documents/Projects/ASE-Tutorials/compare-structures/1.POSCAR')
 d1=[]
 d2=[]
 for i in np.r_[0:len(str1)]:
